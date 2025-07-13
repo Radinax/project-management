@@ -2,7 +2,9 @@
 
 > A sleek, feature-rich task management application inspired by tools like Jira and Asana. Built with **React 19**, **Vite**, and powered by **useReducer** for scalable state management and **[shadcn/ui](https://ui.shadcn.com/)** components.
 
---
+---
+
+![Finished product](public/dashboard.png)
 
 ## 📌 What is TaskFlow?
 
@@ -20,7 +22,7 @@ With a powerful `useReducer`-based state system, TaskFlow enables users to:
 
 All of this functionality is built with **scalable state logic**, making it easy to maintain and extend as your app grows. Whether you're managing sprints like Jira or planning projects like Asana, TaskFlow gives you the tools to stay organized — your way.
 
---
+---
 
 ## 🌟 Features
 
@@ -46,7 +48,7 @@ All of this functionality is built with **scalable state logic**, making it easy
 | Linting       | ESLint + TypeScript ESLint      |
 | Animation     | TailwindCSS Animate             |
 
---
+---
 
 ## 🧪 Development Tools
 
@@ -55,7 +57,7 @@ All of this functionality is built with **scalable state logic**, making it easy
 - **Vite Plugin React**: Seamless React integration
 - **Vite TSConfig Paths**: Absolute imports support
 
---
+---
 
 ## 📁 Project Structure (Simplified)
 
@@ -114,7 +116,7 @@ bun run dev
 
 This will typically open your application at http://localhost:5173. The development server supports hot module replacement (HMR) for a fast development loop.
 
---
+---
 
 ## 📦 Deployment
 

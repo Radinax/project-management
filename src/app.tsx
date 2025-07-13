@@ -1,11 +1,14 @@
 import { SidebarProvider } from "@/components/ui/sidebar";
 import Dashboard from "@/views/dashboard";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <SidebarProvider>
-      <Dashboard />
-    </SidebarProvider>
+    <BrowserRouter>
+      <SidebarProvider>
+        <Dashboard />
+      </SidebarProvider>
+    </BrowserRouter>
   );
 }
 

@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import {
   SheetTitle,
   SheetTrigger,
-  SheetDescription,
   SheetContent,
   Sheet,
 } from "@/components/ui/sheet";
@@ -23,7 +22,6 @@ import {
   FileText,
   HelpCircle,
   Home,
-  Link,
   Menu,
   Settings,
   Shield,
@@ -31,6 +29,7 @@ import {
   type LucideProps,
 } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 type MenuItem = {
   id: string;
@@ -79,7 +78,7 @@ function AppSidebar({
             <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
               <Home className="w-5 h-5 text-white" />
             </div>
-            <h1 className="text-xl font-bold text-gray-900">Persona</h1>
+            <h1 className="text-xl font-bold text-gray-900">Taskflow</h1>
           </div>
         </div>
       </SidebarHeader>
@@ -91,12 +90,12 @@ function AppSidebar({
                 <SidebarMenuItem key={item.id} className="relative">
                   <SidebarMenuButton asChild>
                     <Link
-                      href={item.url}
+                      to={item.url}
                       className={`w-full flex items-center justify-start px-3 py-6 rounded-lg mb-1 transition-all duration-200 ${
                         activeItem === item.id
                           ? "text-indigo-700"
-                          : "text-gray-500"
-                      } hover:!bg-gray-50 hover:!text-gray-900`}
+                          : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"
+                      }`}
                       onClick={() => handleItemClick(item.id)}
                     >
                       {activeItem === item.id && (
@@ -130,8 +129,8 @@ function AppSidebar({
               <ComingSoonTooltip key={item.id}>
                 <SidebarMenuButton asChild>
                   <Link
-                    href={item.url}
-                    className="w-full flex items-center justify-start px-3 py-2.5 rounded-lg mb-1 text-gray-400 hover:!text-gray-400 cursor-default hover:!bg-transparent"
+                    to={item.url}
+                    className="w-full flex items-center justify-start px-3 py-2.5 rounded-lg mb-1 text-gray-400 hover:text-gray-400 cursor-default"
                   >
                     <item.icon
                       style={{
@@ -152,23 +151,32 @@ function AppSidebar({
 
   return (
     <>
-      <div className="relative !bg-transparent">
+      {/* Desktop Sidebar */}
+      <div className="hidden lg:block bg-white">
+        <SidebarL
+          collapsible="icon"
+          className="bg-white text-gray-600 border-0 border-r-0 border-zinc-200"
+        >
+          {sidebarContent}
+        </SidebarL>
+      </div>
+
+      {/* Mobile Sidebar (Sheet) */}
+      <div className="relative lg:hidden !bg-transparent">
         <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
           <SheetTitle className="sr-only">menu</SheetTitle>
           <SheetTrigger asChild>
             <Button
               variant="ghost"
               size="icon"
-              className="ml-2 mt-2 !bg-white border border-indigo-100 absolute top-1"
+              className="ml-2 mt-2 !bg-white border border-zinc-200 absolute top-2"
             >
-              <Menu className="h-6 w-6 bg-white text-indigo-500" />
+              <Menu className="h-6 w-6 bg-white text-gray-500" />
               <span className="sr-only">Open menu</span>
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="p-0 sm:max-w-xs">
-            <SheetDescription className="sr-only">
-              Search tasks and navigate results
-            </SheetDescription>
+            {/* The SheetContent will contain the sidebar content */}
             <SidebarL
               collapsible="none"
               className="bg-white text-gray-600 w-full h-full"

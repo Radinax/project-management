@@ -1,11 +1,10 @@
 import ComingSoonTooltip from "@/components/tooltip";
-import { CommandItem, CommandList } from "@/components/ui/command";
+import { CommandItem, CommandList, Command } from "@/components/ui/command";
 import { USERS } from "@/mock/users";
 import type { TaskList } from "@/types/tasks";
 import {
   List,
   Calendar,
-  Command,
   Search,
   Bell,
   Settings,
@@ -210,7 +209,7 @@ const Header: React.FC<HeaderProps> = ({
           <div className="flex items-center space-x-4">
             <div>
               <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">
-                Project Persona
+                Project Taskflow
               </h1>
               <div className="flex items-center space-x-4">
                 <div className="flex -space-x-2">
