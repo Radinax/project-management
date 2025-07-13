@@ -1,14 +1,77 @@
-# React, TypeScript, Tailwind CSS Project Template with Vite & Bun
+# 🚀 TaskFlow – Project Management Made Simple
 
-This my template for building modern web applications using React, TypeScript, and Tailwind CSS, powered by the Vite build tool and the Bun runtime.
+> A sleek, feature-rich task management application inspired by tools like Jira and Asana. Built with **React 19**, **Vite**, and powered by **useReducer** for scalable state management and **[shadcn/ui](https://ui.shadcn.com/)** components.
 
-## ✨ Features
+--
 
-- **React 19**: A declarative, efficient, and flexible JavaScript library for building user interfaces.
-- **TypeScript**: A strongly typed superset of JavaScript that compiles to plain JavaScript, enhancing code quality and developer experience.
-- **Tailwind CSS 4**: A utility-first CSS framework for rapidly building custom designs.
-- **Vite**: A next-generation frontend tooling that provides an incredibly fast development experience.
-- **Bun**: An all-in-one JavaScript runtime & toolkit, providing a fast package manager, bundler, and test runner.
+## 📌 What is TaskFlow?
+
+**TaskFlow** is a fully-featured task management application designed for organizing work across customizable boards and columns — perfect for teams and individuals who need flexibility without complexity.
+
+With a powerful `useReducer`-based state system, TaskFlow enables users to:
+
+- ✅ Create, rename, and remove **custom columns** (like "To Do", "In Progress", etc.)
+- 📌 Add, edit, delete, and **reorder tasks** seamlessly
+- 🔀 Drag and drop tasks between columns or within a column to re-prioritize
+- 🔍 Search and **filter tasks** in real-time
+- 💬 Add, edit, and delete **comments** on tasks for collaboration
+- 🔄 Reset or restore tasks to their original state
+- 🎯 Reorder entire **column layouts** to match your workflow
+
+All of this functionality is built with **scalable state logic**, making it easy to maintain and extend as your app grows. Whether you're managing sprints like Jira or planning projects like Asana, TaskFlow gives you the tools to stay organized — your way.
+
+--
+
+## 🌟 Features
+
+- 🧱 Drag-and-drop task boards (powered by `@dnd-kit`)
+- 📅 Date pickers & scheduling with `react-day-picker`
+- ⚙️ Custom UI built using **headless Radix UI components**
+- 💡 Command palette support via `cmdk`
+- 🎨 Fully customizable with Tailwind CSS
+- 🔍 Type-safe with TypeScript
+- 🛠️ Efficient state logic using `useReducer` (no external state managers)
+- 🌘 Light/dark mode toggle and responsive design
+
+---
+
+## 🛠 Tech Stack
+
+| Layer         | Technology                      |
+| ------------- | ------------------------------- |
+| Framework     | React 19 + Vite                 |
+| State Mgmt    | React `useReducer`              |
+| UI Components | shadcn/ui (Radix UI + Tailwind) |
+| Styling       | Tailwind CSS                    |
+| Linting       | ESLint + TypeScript ESLint      |
+| Animation     | TailwindCSS Animate             |
+
+--
+
+## 🧪 Development Tools
+
+- **TypeScript**: For type safety
+- **ESLint**: Code linting & quality
+- **Vite Plugin React**: Seamless React integration
+- **Vite TSConfig Paths**: Absolute imports support
+
+--
+
+## 📁 Project Structure (Simplified)
+
+```bash
+src/
+├── components/       # Reusable UI components (shadcn/ui styled)
+├── hooks/            # Custom hooks (e.g., useTasks, useBoard)
+├── lib/              # Utility functions and constants
+├── reducer/          # Reducer logic using useReducer
+├── types/            # TypeScript interfaces and types
+├── views/            # Dashboard views
+├── app.tsx           # Main component tree
+└── main.tsx          # Entry point
+```
+
+---
 
 ## 🚀 Getting Started
 
@@ -29,40 +92,11 @@ curl -fsSL https://bun.sh/install | bash
 If you're creating a new project from scratch, you can use Vite directly:
 
 ```bash
-bun create vite@latest vite-react -- --template react-ts
-cd vite-react
+git clone https://github.com/radinax/project-management.git
+cd project-management
 ```
 
-Then, install Tailwind CSS:
-
-```bash
-bun add tailwindcss @tailwindcss/vite
-```
-
-Add the @tailwindcss/vite plugin to your Vite configuration.
-
-```ts
-import { defineConfig } from "vite";
-import tailwindcss from "@tailwindcss/vite";
-export default defineConfig({
-  plugins: [tailwindcss()],
-});
-```
-
-Add an @import to your CSS file that imports Tailwind CSS (main.css).
-
-```css
-@import "tailwindcss";
-```
-
-2. If you cloned this repository, simply navigate into the project directory:
-
-```bash
-git clone <repository-url>
-cd <repository-name>
-```
-
-3. Install dependencies:
+2. Install dependencies:
 
 Bun will install all the necessary project dependencies:
 
@@ -70,84 +104,21 @@ Bun will install all the necessary project dependencies:
 bun install
 ```
 
-## 🏃 Running the Development Server
+3. Running the Development Server
 
 Start the development server with Vite:
 
 ```bash
-bun dev
+bun run dev
 ```
 
 This will typically open your application at http://localhost:5173. The development server supports hot module replacement (HMR) for a fast development loop.
 
-## 📂 Project Structure
-
-```bash
-.
-├── public/ # Static assets
-├── src/ # Source code
-│ ├── assets/ # Images, icons, etc.
-│ ├── components/ # Reusable React components
-│ ├── app.tsx # Main App component
-│ ├── index.css # Global styles (Tailwind directives here)
-│ ├── main.tsx # Entry point for React app
-│ └── vite-env.d.ts # Vite environment types
-├── .gitignore # Files/directories to ignore in Git
-├── index.html # Main HTML file
-├── package.json # Project dependencies and scripts
-├── postcss.config.js # PostCSS configuration for Tailwind
-├── tailwind.config.js # Tailwind CSS configuration
-├── tsconfig.json # TypeScript configuration
-├── tsconfig.node.json # TypeScript configuration for Node.js environment
-└── vite.config.ts # Vite configuration
-```
-
-## 📜 Available Scripts
-
-In the project directory, you can run the following Bun commands:
-
-- `bun dev`: Starts the development server with hot module replacement.
-
-```bash
-bun dev
-```
-
-- `bun build`: Builds the app for production to the dist folder. It correctly bundles React in production mode and optimizes the build for the best performance.
-
-```bash
-bun build
-```
-
-- `bun preview`: Locally serves the production build. Useful for verifying the build output before deployment.
-
-```bash
-bun preview
-```
-
-- `bun lint`: Runs ESLint to check for code quality issues and potential errors.
-
-```bash
-bun lint
-```
-
-## ⚙️ Vite Configuration
-
-The vite.config.ts file allows you to customize Vite's behavior, such as adding plugins, configuring the development server proxy, or setting up build options.
-
-```ts
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import tailwindcss from "@tailwindcss/vite";
-
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react(), tailwindcss()],
-});
-```
+--
 
 ## 📦 Deployment
 
-After running bun build, the optimized production assets will be located in the dist/ directory. You can deploy this directory to any static site hosting service (e.g., Netlify, Vercel, GitHub Pages, Firebase Hosting).
+## After running bun build, the optimized production assets will be located in the dist/ directory. You can deploy this directory to any static site hosting service (e.g., Netlify, Vercel, GitHub Pages, Firebase Hosting).
 
 ## 🤝 Contributing
 
